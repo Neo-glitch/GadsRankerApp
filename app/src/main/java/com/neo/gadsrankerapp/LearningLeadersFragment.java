@@ -2,11 +2,13 @@ package com.neo.gadsrankerapp;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +33,7 @@ import retrofit2.Response;
  */
 public class LearningLeadersFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
     private static final String TAG = "LearningLeadersFragment";
+    public static final String ARRAY_TOP_LEARNERS = "ArrayTopLearners";
 
     // widgets
     private RecyclerView mRecyclerView;
@@ -64,11 +67,21 @@ public class LearningLeadersFragment extends Fragment implements SwipeRefreshLay
         mSwipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout_learning);
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
-        mTopLearners = new ArrayList<>();
-        getTopLearningLeaders();
+        if(savedInstanceState != null){
+            mTopLearners = savedInstanceState.getParcelableArrayList(ARRAY_TOP_LEARNERS);
+        } else{
+            mTopLearners = new ArrayList<>();
+            getTopLearningLeaders();
+        }
         initRecyclerView();
 
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putParcelableArrayList("ArrayTopLearners", (ArrayList<? extends Parcelable>) mTopLearners);
+        super.onSaveInstanceState(outState);
     }
 
     private void getTopLearningLeaders() {
@@ -89,7 +102,7 @@ public class LearningLeadersFragment extends Fragment implements SwipeRefreshLay
             @Override
             public void onFailure(Call<List<TopLearnerHours>> call, Throwable t) {
                 if(t instanceof IOException){
-                    Toast.makeText(getContext(), "Please check your internet connection", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Please check your internet connection and refresh", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getContext(), "Failed to retreive items", Toast.LENGTH_SHORT).show();
                 }

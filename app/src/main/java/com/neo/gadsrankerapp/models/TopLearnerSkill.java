@@ -1,6 +1,9 @@
 package com.neo.gadsrankerapp.models;
 
-public class TopLearnerSkill {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class TopLearnerSkill implements Parcelable {
     private String name;
     private int score;
     private String country;
@@ -12,6 +15,25 @@ public class TopLearnerSkill {
         this.country = country;
         this.badgeUrl = badgeUrl;
     }
+
+    protected TopLearnerSkill(Parcel in) {
+        name = in.readString();
+        score = in.readInt();
+        country = in.readString();
+        badgeUrl = in.readString();
+    }
+
+    public static final Creator<TopLearnerSkill> CREATOR = new Creator<TopLearnerSkill>() {
+        @Override
+        public TopLearnerSkill createFromParcel(Parcel in) {
+            return new TopLearnerSkill(in);
+        }
+
+        @Override
+        public TopLearnerSkill[] newArray(int size) {
+            return new TopLearnerSkill[size];
+        }
+    };
 
     public String getName() {
         return name;
@@ -53,5 +75,18 @@ public class TopLearnerSkill {
                 ", country='" + country + '\'' +
                 ", badgeUrl='" + badgeUrl + '\'' +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeInt(score);
+        dest.writeString(country);
+        dest.writeString(badgeUrl);
     }
 }
