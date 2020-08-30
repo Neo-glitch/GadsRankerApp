@@ -1,17 +1,15 @@
 package com.neo.gadsrankerapp.models;
 
-public class TopLearnerSkill {
+public class TopLearnerHoursTest {
     private String name;
-    private int score;
+    private String hours;
     private String country;
     private String badgeUrl;
 
-    public TopLearnerSkill(String userName, int score, String country, String badgeUrl) {
-        this.name = userName;
-        this.score = score;
-        this.country = country;
-        this.badgeUrl = badgeUrl;
+    public TopLearnerHoursTest() {
+
     }
+
 
     public String getName() {
         return name;
@@ -21,12 +19,12 @@ public class TopLearnerSkill {
         this.name = name;
     }
 
-    public int getScore() {
-        return score;
+    public String getHours() {
+        return hours;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setHours(String hours) {
+        this.hours = hours;
     }
 
     public String getCountry() {
@@ -47,9 +45,9 @@ public class TopLearnerSkill {
 
     @Override
     public String toString() {
-        return "TopLearnerSkill{" +
+        return "TopLearnerHoursTest{" +
                 "name='" + name + '\'' +
-                ", score=" + score +
+                ", hours='" + hours + '\'' +
                 ", country='" + country + '\'' +
                 ", badgeUrl='" + badgeUrl + '\'' +
                 '}';

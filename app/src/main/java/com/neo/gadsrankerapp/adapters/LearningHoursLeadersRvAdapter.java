@@ -4,8 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,14 +13,15 @@ import com.neo.gadsrankerapp.R;
 import com.neo.gadsrankerapp.models.TopLearnerHours;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LearningHoursLeadersRvAdapter extends RecyclerView.Adapter<LearningHoursLeadersRvAdapter.MyViewHolder>{
-    private ArrayList<TopLearnerHours> mTopLearners;
+    private List<TopLearnerHours> mTopLearners;
     private Context mContext;
 
 
 
-    public LearningHoursLeadersRvAdapter(Context context, ArrayList<TopLearnerHours> topLearners){
+    public LearningHoursLeadersRvAdapter(Context context, List<TopLearnerHours> topLearners){
         this.mTopLearners = topLearners;
         this.mContext = context;
     }
@@ -38,8 +37,8 @@ public class LearningHoursLeadersRvAdapter extends RecyclerView.Adapter<Learning
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         TopLearnerHours topLearner = mTopLearners.get(position);
 
-        holder.userName.setText(topLearner.getUserName());
-        holder.learningHours.setText(topLearner.getTime() + " learning hours, Kenya");
+        holder.userName.setText(topLearner.getName());
+        holder.learningHours.setText(topLearner.getHours() + " learning hours, Kenya");
     }
 
     @Override

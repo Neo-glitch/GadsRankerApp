@@ -13,12 +13,13 @@ import com.neo.gadsrankerapp.R;
 import com.neo.gadsrankerapp.models.TopLearnerSkill;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SkillIQLeadersRvAdapter extends RecyclerView.Adapter<SkillIQLeadersRvAdapter.MyViewHolder> {
     private Context mContext;
-    private ArrayList<TopLearnerSkill> mTopLearners;
+    private List<TopLearnerSkill> mTopLearners;
 
-    public SkillIQLeadersRvAdapter(Context context, ArrayList<TopLearnerSkill> topLearners) {
+    public SkillIQLeadersRvAdapter(Context context, List<TopLearnerSkill> topLearners) {
         mContext = context;
         mTopLearners = topLearners;
     }
@@ -33,7 +34,7 @@ public class SkillIQLeadersRvAdapter extends RecyclerView.Adapter<SkillIQLeaders
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         TopLearnerSkill topLearner = mTopLearners.get(position);
-        holder.userName.setText(topLearner.getUserName());
+        holder.userName.setText(topLearner.getName());
         holder.score.setText(topLearner.getScore() + " skill IQ score, Egypt");
 
     }
