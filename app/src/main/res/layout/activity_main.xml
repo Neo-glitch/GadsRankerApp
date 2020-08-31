@@ -5,49 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:background="@drawable/launch_clean"
     android:orientation="vertical">
 
 
     <!--  Custom ToolBar Layout  -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="100dp"
+        android:background="@android:color/transparent"
         android:id="@+id/app_bar_layout">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="2"
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/textView"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="10dp"
-
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:text="LEADERBOARD"
                     android:textAlignment="center"
                     android:textColor="@color/colorAccent"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.737" />
 
                 <TextView
                     android:id="@+id/submit_tv"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="15dp"
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:text="Submit"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/submit_button_style"
                     android:inputType="textLongMessage"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
+                    android:text="Submit"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5012658" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -60,12 +73,15 @@
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:id="@+id/tab_layout">
+            android:background="@android:color/transparent"
+            android:id="@+id/tab_layout"
+            app:tabTextColor="@android:color/white">
         </com.google.android.material.tabs.TabLayout>
 
         <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@android:color/white"
             android:layout_below="@+id/tab_layout"
             android:id="@+id/view_pager">
         </androidx.viewpager.widget.ViewPager>
