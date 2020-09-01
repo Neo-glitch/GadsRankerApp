@@ -38,7 +38,7 @@ public class LearningHoursLeadersRvAdapter extends RecyclerView.Adapter<Learning
         TopLearnerHours topLearner = mTopLearners.get(position);
 
         holder.userName.setText(topLearner.getName());
-        holder.learningHours.setText(topLearner.getHours() + " learning hours, Kenya");
+        holder.learningHours.setText(topLearner.getHours() + " learning hours, " + topLearner.getCountry());
     }
 
     @Override

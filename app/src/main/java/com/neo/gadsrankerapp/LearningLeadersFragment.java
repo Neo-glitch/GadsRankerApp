@@ -80,7 +80,7 @@ public class LearningLeadersFragment extends Fragment implements SwipeRefreshLay
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putParcelableArrayList("ArrayTopLearners", (ArrayList<? extends Parcelable>) mTopLearners);
+        outState.putParcelableArrayList(ARRAY_TOP_LEARNERS, (ArrayList<? extends Parcelable>) mTopLearners);
         super.onSaveInstanceState(outState);
     }
 

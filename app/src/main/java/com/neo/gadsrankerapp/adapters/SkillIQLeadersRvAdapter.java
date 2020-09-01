@@ -35,7 +35,7 @@ public class SkillIQLeadersRvAdapter extends RecyclerView.Adapter<SkillIQLeaders
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         TopLearnerSkill topLearner = mTopLearners.get(position);
         holder.userName.setText(topLearner.getName());
-        holder.score.setText(topLearner.getScore() + " skill IQ score, Egypt");
+        holder.score.setText(topLearner.getScore() + " skill IQ score, " + topLearner.getCountry());
 
     }
 

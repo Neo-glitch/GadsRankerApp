@@ -1,7 +1,6 @@
 package com.neo.gadsrankerapp.Utility;
 
 import com.neo.gadsrankerapp.models.TopLearnerHours;
-import com.neo.gadsrankerapp.models.TopLearnerHoursTest;
 import com.neo.gadsrankerapp.models.TopLearnerSkill;
 
 import java.util.List;

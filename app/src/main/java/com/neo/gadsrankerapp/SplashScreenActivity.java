@@ -40,6 +40,6 @@ public class SplashScreenActivity extends AppCompatActivity {
                 finish();
                 overridePendingTransition(0, 0);
             }
-        }, 3500);
+        }, 3000);
     }
 }

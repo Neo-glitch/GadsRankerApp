@@ -23,7 +23,9 @@
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustPan" />
 
-        <activity android:name=".MainActivity" />
+        <!-- singleTop prevents activity from being recreated when using back nav -->
+        <activity android:name=".MainActivity"
+            android:launchMode="singleTop"/>
 
         <meta-data
             android:name="preloaded_fonts"
