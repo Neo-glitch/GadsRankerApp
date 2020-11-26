@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * class to implement retrofit Builder
  */
 public class ServiceBuilder {
-    // client to specify call timeOut
+    // client to specify read timeOut
     private static OkHttpClient.Builder okHttp = new OkHttpClient.Builder()
             .readTimeout(20, TimeUnit.SECONDS);
 
